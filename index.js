@@ -8,10 +8,13 @@ const Usuario = require("./models/Usuario");
 const Cartao = require("./models/Cartao");
 const Jogo = require("./models/Jogo");
 
+const { DataTypes } = require("sequelize");
+
 Jogo.belongsToMany(Usuario, { through: "aquisicoes" });
 Usuario.belongsToMany(Jogo, { through: "aquisicoes" });
 
 // Instanciação do servidor:
+
 const app = express();
 
 // Vinculação do Handlebars ao Express:
@@ -26,6 +29,7 @@ app.use(
   })
 );
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -144,11 +148,10 @@ conn
     console.log("Ocorreu um erro: " + err);
   });
 
-// conn
-//   .authenticate()
-//   .then(() => {
-//     console.log("Conectado ao banco de dados com sucesso!");
-//   })
-//   .catch((err) => {
-//     console.log("Ocorreu um erro: " + err);
-//   });
+conn.authenticate()
+  .then(() => {
+    console.log("Conectado ao banco de dados com sucesso!");
+  })
+  .catch((err) => {
+    console.log("Ocorreu um erro: " + err);
+  });
