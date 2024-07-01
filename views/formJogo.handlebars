@@ -22,9 +22,7 @@
             <label for="precoBase">Preço</label>
             <input type="text" id="precoBase" name="precoBase" value="{{jogo.precoBase}}">
         </div>
-        <button><a href="http://localhost:8000/jogos">Voltar</a></button>
-
-        {{#if jogo}}
+	 {{#if jogo}}
         <input type="submit" value="Salvar" />
         {{else}}
         <input type="submit" value="Cadastrar" />
