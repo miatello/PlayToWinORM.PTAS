@@ -14,7 +14,6 @@
         <td>{{this.titulo}}</td>
         <td>{{this.descricao}}</td>
         <td>
-            <button><a href="/jogos/{{this.id}}/atualizar">Atualizar</a></button>
             <form action="/jogos/excluir" method="post">
                 <input name="id" type="hidden" value="{{this.id}}" />
                 <input type="submit" value="Excluir">

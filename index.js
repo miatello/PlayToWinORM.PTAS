@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 const express = require("express");
 const conn = require("./db/conn");
@@ -21,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.post("/usuario/novo", async (req, res) => {
+app.post("/usuarios/novo", async (req, res) => {
   const dadosUsuario = {
     nickname: req.body.nickname,
     nome: req.body.nome
@@ -72,7 +71,7 @@ app.post("/usuarios/excluir", async (req, res) => {
   }
 });
 
-app.post("/jogo/novo", async (req, res) => {
+app.post("/jogos/novo", async (req, res) => {
   const dadosJogo = {
     titulo: req.body.titulo,
     descricao: req.body.descricao,
